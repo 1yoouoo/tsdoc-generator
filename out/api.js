@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.main = void 0;
+exports.generateTsDocComment = void 0;
 const vscode = __importStar(require("vscode"));
 const openai_1 = __importDefault(require("openai"));
 const config = vscode.workspace.getConfiguration('tsdoc-generator');
@@ -34,7 +34,7 @@ const apiKey = config.get('apiKey');
 const openai = new openai_1.default({
     apiKey,
 });
-const main = async (selectedText) => {
+const generateTsDocComment = async (selectedText) => {
     const completion = await openai.chat.completions.create({
         messages: [
             {
@@ -60,9 +60,9 @@ const main = async (selectedText) => {
             * @property {string} email - 사용자의 이메일 주소입니다.
             */
             interface IUser { 
-                id: number; 
-                name: string; 
-                email: string; 
+                    id: number; 
+                    name: string; 
+                    email: string; 
             }
             
             Example 3: Class
@@ -75,7 +75,7 @@ const main = async (selectedText) => {
             * @param {string} email - 사용자의 이메일 주소입니다.
             */
             class User { 
-                constructor(public id: number, public name: string, public email: string) {} 
+                    constructor(public id: number, public name: string, public email: string) {} 
             }
             
             Example 4: Enum
@@ -89,9 +89,9 @@ const main = async (selectedText) => {
             * @property {number} User - 일반 사용자 역할
             */
             enum UserRole { 
-                Admin, 
-                Editor, 
-                User 
+                    Admin, 
+                    Editor, 
+                    User 
             }
             
             Example 5: Interface Extension
@@ -132,7 +132,7 @@ const main = async (selectedText) => {
             */
             
             Write without {"""${'```typescript```'}"""}
-            `,
+                `,
             },
             {
                 role: 'user',
@@ -141,11 +141,7 @@ const main = async (selectedText) => {
         ],
         model: 'gpt-3.5-turbo',
     });
-    console.log(completion.choices[0]);
-    console.log(`prompt_tokens used: ${completion.usage?.prompt_tokens}`);
-    console.log(`completion_tokens used: ${completion.usage?.completion_tokens}`);
-    console.log(`total_tokens used: ${completion.usage?.total_tokens}`);
     return completion.choices[0].message.content;
 };
-exports.main = main;
+exports.generateTsDocComment = generateTsDocComment;
 //# sourceMappingURL=api.js.map

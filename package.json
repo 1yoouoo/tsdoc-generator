@@ -4,7 +4,7 @@
   "description": "TSdoc Generator is a VSCode extension that effortlessly generates tsDOC comments for TypeScript interfaces and types. It saves time and enhances code readability by providing precise documentation automatically. Ideal for projects of any size, it keeps your documentation consistent and easy to maintain.",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.87.0"
   },
   "categories": [
     "Other"
@@ -14,13 +14,13 @@
   "contributes": {
     "commands": [
       {
-        "command": "tsdoc-generator.helloWorld",
-        "title": "안녕하세요!"
+        "command": "tsdoc-generator.activate",
+        "title": "hello from tsdoc-generator!"
       }
     ],
     "keybindings": [
       {
-        "command": "tsdoc-generator.helloWorld",
+        "command": "tsdoc-generator.activate",
         "key": "ctrl+e",
         "mac": "cmd+e",
         "when": "editorTextFocus"
@@ -38,10 +38,10 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run compile",
+    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -w",
-    "pretest": "pnpm run compile && pnpm run lint",
+    "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "vscode-test"
   },

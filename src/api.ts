@@ -7,7 +7,7 @@ const openai = new OpenAI({
   apiKey,
 });
 
-export const main = async (selectedText: string) => {
+export const generateTsDocComment = async (selectedText: string) => {
   const completion = await openai.chat.completions.create({
     messages: [
       {
@@ -33,9 +33,9 @@ export const main = async (selectedText: string) => {
             * @property {string} email - 사용자의 이메일 주소입니다.
             */
             interface IUser { 
-                id: number; 
-                name: string; 
-                email: string; 
+                    id: number; 
+                    name: string; 
+                    email: string; 
             }
             
             Example 3: Class
@@ -48,7 +48,7 @@ export const main = async (selectedText: string) => {
             * @param {string} email - 사용자의 이메일 주소입니다.
             */
             class User { 
-                constructor(public id: number, public name: string, public email: string) {} 
+                    constructor(public id: number, public name: string, public email: string) {} 
             }
             
             Example 4: Enum
@@ -62,9 +62,9 @@ export const main = async (selectedText: string) => {
             * @property {number} User - 일반 사용자 역할
             */
             enum UserRole { 
-                Admin, 
-                Editor, 
-                User 
+                    Admin, 
+                    Editor, 
+                    User 
             }
             
             Example 5: Interface Extension
@@ -105,7 +105,7 @@ export const main = async (selectedText: string) => {
             */
             
             Write without {"""${'```typescript```'}"""}
-            `,
+                `,
       },
       {
         role: 'user',
@@ -115,9 +115,5 @@ export const main = async (selectedText: string) => {
     model: 'gpt-3.5-turbo',
   });
 
-  console.log(completion.choices[0]);
-  console.log(`prompt_tokens used: ${completion.usage?.prompt_tokens}`);
-  console.log(`completion_tokens used: ${completion.usage?.completion_tokens}`);
-  console.log(`total_tokens used: ${completion.usage?.total_tokens}`);
   return completion.choices[0].message.content;
 };
