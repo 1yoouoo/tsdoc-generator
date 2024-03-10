@@ -1,7 +1,7 @@
 # tsDoc-generator
 
 
-<img src="images/preview.mov" width="500px" />
+![Demo](https://github.com/1yoouoo/tsdoc-generator/blob/main/images/preview.gif?raw=true)
 
 ## **tsDoc Generator**
 
