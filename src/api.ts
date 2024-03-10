@@ -25,11 +25,11 @@ if (language === 'korean') {
     Type definition: interface IUser { id: number; name: string; email: string; }
     Expected tsDoc: 
     /**
-    * 사용자 인터페이스입니다.
-    * @property {number} id - 사용자의 고유 ID입니다.
-    * @property {string} name - 사용자의 이름입니다.
-    * @property {string} email - 사용자의 이메일 주소입니다.
-    */
+     * 사용자 인터페이스입니다.
+     * @property {number} id - 사용자의 고유 ID입니다.
+     * @property {string} name - 사용자의 이름입니다.
+     * @property {string} email - 사용자의 이메일 주소입니다.
+     */
     interface IUser { 
         id: number; 
         name: string; 
@@ -40,11 +40,11 @@ if (language === 'korean') {
     Type definition: class User { constructor(public id: number, public name: string, public email: string) {} }
     Expected tsDoc: 
     /**
-    * 사용자를 나타내는 클래스입니다.
-    * @param {number} id - 사용자의 고유 ID입니다.
-    * @param {string} name - 사용자의 이름입니다.
-    * @param {string} email - 사용자의 이메일 주소입니다.
-    */
+     * 사용자를 나타내는 클래스입니다.
+     * @param {number} id - 사용자의 고유 ID입니다.
+     * @param {string} name - 사용자의 이름입니다.
+     * @param {string} email - 사용자의 이메일 주소입니다.
+     */
     class User { 
         constructor(public id: number, public name: string, public email: string) {} 
     }
@@ -53,12 +53,12 @@ if (language === 'korean') {
     Type definition: enum UserRole { Admin, Editor, User }
     Expected tsDoc: 
     /**
-    * 사용자의 역할을 나타내는 열거형입니다.
-    * @enum {number} UserRole
-    * @property {number} Admin - 관리자 역할
-    * @property {number} Editor - 에디터 역할
-    * @property {number} User - 일반 사용자 역할
-    */
+     * 사용자의 역할을 나타내는 열거형입니다.
+     * @enum {number} UserRole
+     * @property {number} Admin - 관리자 역할
+     * @property {number} Editor - 에디터 역할
+     * @property {number} User - 일반 사용자 역할
+     */
     enum UserRole { 
         Admin, 
         Editor, 
@@ -69,12 +69,12 @@ if (language === 'korean') {
     Type definition: interface HostManagementEventListViewModel extends HostManagementEventListModel { filterOptions: FilterOptions; limit: Limit; status: Status; };
     Expected tsDoc: 
     /**
-    * 관리 보드 리스트 뷰 모델 인터페이스입니다. HostManagementEventListModel 인터페이스를 확장하며, 추가적인 필터 옵션을 제공합니다.
-    * @extends {HostManagementEventListModel} - 기본 이벤트 리스트 모델을 확장합니다.
-    * @property {FilterOptions} filterOptions - 사용 가능한 필터 옵션을 나타냅니다.
-    * @property {Limit} limit - 한 번에 표시할 항목 수의 제한입니다.
-    * @property {Status} status - 현재 선택된 참가자 상태 필터입니다.
-    */
+     * 관리 보드 리스트 뷰 모델 인터페이스입니다. HostManagementEventListModel 인터페이스를 확장하며, 추가적인 필터 옵션을 제공합니다.
+     * @extends {HostManagementEventListModel} - 기본 이벤트 리스트 모델을 확장합니다.
+     * @property {FilterOptions} filterOptions - 사용 가능한 필터 옵션을 나타냅니다.
+     * @property {Limit} limit - 한 번에 표시할 항목 수의 제한입니다.
+     * @property {Status} status - 현재 선택된 참가자 상태 필터입니다.
+     */
     interface HostManagementEventListViewModel extends HostManagementEventListModel { 
         filterOptions: FilterOptions; 
         limit: Limit; 
@@ -85,31 +85,33 @@ if (language === 'korean') {
     Type definition: type WindowState = 'open' | 'closed' | 'minimized';
     Expected tsDoc:
     /**
-    * 윈도우의 상태를 나타내는 타입입니다. '열림', '닫힘', '최소화' 중 하나의 상태를 가집니다.
-    */
+     * 윈도우의 상태를 나타내는 타입입니다. '열림', '닫힘', '최소화' 중 하나의 상태를 가집니다.
+     */
     type WindowState = 'open' | 'closed' | 'minimized';
 
     Example 7: Compound Type (Intersection Type)
     Type definition: type ProjectManager = Person & Employee & { projectIds: number[]; };
     Expected tsDoc:
     /**
-    * 프로젝트 매니저를 나타내는 타입입니다. 사람(Person)과 직원(Employee)의 속성을 모두 가지며, 추가로 프로젝트 관리에 필요한 속성들을 포함합니다.
-    */
+     * 프로젝트 매니저를 나타내는 타입입니다. 사람(Person)과 직원(Employee)의 속성을 모두 가지며, 추가로 프로젝트 관리에 필요한 속성들을 포함합니다.
+     */
     type ProjectManager = Person & Employee & { projectIds: number[]; };
 
     Example 8: Generic Interface and Type
     Type definition: interface GenericResponse<T, E> { success: boolean; data?: T; error?: E; }
     Expected tsDoc:
     /**
-    * 데이터와 함께 응답을 나타내는 제네릭 인터페이스입니다. 성공 또는 실패 여부에 따라 다른 타입의 데이터를 포함할 수 있습니다.
-    * @template T - 성공시 포함할 데이터의 타입
-    * @template E - 실패시 포함할 에러의 타입
-    * @property {boolean} success - 응답의 성공 여부
-    * @property {T} [data] - 성공시 응답에 포함될 데이터
-    * @property {E} [error] - 실패시 응답에 포함될 에러 정보
-    */
+     * 데이터와 함께 응답을 나타내는 제네릭 인터페이스입니다. 성공 또는 실패 여부에 따라 다른 타입의 데이터를 포함할 수 있습니다.
+     * @template T - 성공시 포함할 데이터의 타입
+     * @template E - 실패시 포함할 에러의 타입
+     * @property {boolean} success - 응답의 성공 여부
+     * @property {T} [data] - 성공시 응답에 포함될 데이터
+     * @property {E} [error] - 실패시 응답에 포함될 에러 정보
+     */
     interface GenericResponse<T, E> { success: boolean; data?: T; error?: E; }
-    Write without {"""${'```typescript```'}"""}
+
+
+    Please write your content without using TypeScript code block identifiers.
   `;
 } else {
   // 영어 또는 기타 언어에 대한 처리
@@ -127,11 +129,11 @@ if (language === 'korean') {
     Type definition: interface IUser { id: number; name: string; email: string; }
     Expected tsDoc: 
     /**
-    * Interface for user.
-    * @property {number} id - The unique ID of the user.
-    * @property {string} name - The name of the user.
-    * @property {string} email - The email address of the user.
-    */
+     * Interface for user.
+     * @property {number} id - The unique ID of the user.
+     * @property {string} name - The name of the user.
+     * @property {string} email - The email address of the user.
+     */
     interface IUser { 
         id: number; 
         name: string; 
@@ -142,11 +144,11 @@ if (language === 'korean') {
     Type definition: class User { constructor(public id: number, public name: string, public email: string) {} }
     Expected tsDoc: 
     /**
-    * Represents a user class.
-    * @param {number} id - The unique ID of the user.
-    * @param {string} name - The name of the user.
-    * @param {string} email - The email address of the user.
-    */
+     * Represents a user class.
+     * @param {number} id - The unique ID of the user.
+     * @param {string} name - The name of the user.
+     * @param {string} email - The email address of the user.
+     */
     class User { 
         constructor(public id: number, public name: string, public email: string) {} 
     }
@@ -155,12 +157,12 @@ if (language === 'korean') {
     Type definition: enum UserRole { Admin, Editor, User }
     Expected tsDoc: 
     /**
-    * Enumeration for user roles.
-    * @enum {number} UserRole
-    * @property {number} Admin - The admin role.
-    * @property {number} Editor - The editor role.
-    * @property {number} User - The user role.
-    */
+     * Enumeration for user roles.
+     * @enum {number} UserRole
+     * @property {number} Admin - The admin role.
+     * @property {number} Editor - The editor role.
+     * @property {number} User - The user role.
+     */
     enum UserRole { 
         Admin, 
         Editor, 
@@ -171,12 +173,12 @@ if (language === 'korean') {
     Type definition: interface HostManagementEventListViewModel extends HostManagementEventListModel { filterOptions: FilterOptions; limit: Limit; status: Status; };
     Expected tsDoc: 
     /**
-    * Interface for host management event list view model. Extends HostManagementEventListModel and provides additional filter options.
-    * @extends {HostManagementEventListModel} - Extends the base event list model.
-    * @property {FilterOptions} filterOptions - The available filter options.
-    * @property {Limit} limit - The limit of items to display at once.
-    * @property {Status} status - The currently selected participant status filter.
-    */
+     * Interface for host management event list view model. Extends HostManagementEventListModel and provides additional filter options.
+     * @extends {HostManagementEventListModel} - Extends the base event list model.
+     * @property {FilterOptions} filterOptions - The available filter options.
+     * @property {Limit} limit - The limit of items to display at once.
+     * @property {Status} status - The currently selected participant status filter.
+     */
     interface HostManagementEventListViewModel extends HostManagementEventListModel { 
         filterOptions: FilterOptions; 
         limit: Limit; 
@@ -187,31 +189,33 @@ if (language === 'korean') {
     Type definition: type WindowState = 'open' | 'closed' | 'minimized';
     Expected tsDoc:
     /**
-    * Type representing the state of a window. Can have one of 'open', 'closed', or 'minimized' states.
-    */
+     * Type representing the state of a window. Can have one of 'open', 'closed', or 'minimized' states.
+     */
     type WindowState = 'open' | 'closed' | 'minimized';
     
     Example 7: Compound Type (Intersection Type)
     Type definition: type ProjectManager = Person & Employee & { projectIds: number[]; };
     Expected tsDoc:
     /**
-    * Type representing a project manager. Combines properties of a person and an employee, along with additional properties required for project management.
-    */
+     * Type representing a project manager. Combines properties of a person and an employee, along with additional properties required for project management.
+     */
     type ProjectManager = Person & Employee & { projectIds: number[]; };
     
     Example 8: Generic Interface and Type
     Type definition: interface GenericResponse<T, E> { success: boolean; data?: T; error?: E; }
     Expected tsDoc:
     /**
-    * Generic interface representing a response with data. Can include different types of data based on success or failure.
-    * @template T - The type of data to include on success.
-    * @template E - The type of error to include on failure.
-    * @property {boolean} success - The success status of the response.
-    * @property {T} [data] - The data included in the response on success.
-    * @property {E} [error] - The error information included in the response on failure.
-    */
+     * Generic interface representing a response with data. Can include different types of data based on success or failure.
+     * @template T - The type of data to include on success.
+     * @template E - The type of error to include on failure.
+     * @property {boolean} success - The success status of the response.
+     * @property {T} [data] - The data included in the response on success.
+     * @property {E} [error] - The error information included in the response on failure.
+     */
     interface GenericResponse<T, E> { success: boolean; data?: T; error?: E; }
-    Write without {"""${'```typescript```'}"""}
+
+
+    Please write your content without using TypeScript code block identifiers.
   `;
 }
 
