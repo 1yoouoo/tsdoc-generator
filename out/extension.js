@@ -57,17 +57,20 @@ function activate(context) {
             title: '분석 중...',
             cancellable: false,
         }, async () => {
-            const formattedText = await (0, api_1.generateTsDocComment)(selectedText);
-            if (formattedText && requestId === latestRequestId) {
-                editor.edit(editBuilder => {
-                    editBuilder.replace(selection, formattedText);
-                });
+            try {
+                const formattedText = await (0, api_1.generateTsDocComment)(selectedText);
+                if (formattedText && requestId === latestRequestId) {
+                    editor.edit(editBuilder => {
+                        editBuilder.replace(selection, formattedText);
+                    });
+                }
+                else if (requestId !== latestRequestId) {
+                    // 요청 ID가 변경되었을 때의 처리 로직
+                }
             }
-            else if (requestId !== latestRequestId) {
-                // 추후 2초정도 보이는 메세지 추가되면 구현
-            }
-            else {
-                vscode.window.showInformationMessage('포맷팅 실패');
+            catch (error) {
+                const errorCode = error.error.code ?? '알 수 없는 에러';
+                vscode.window.showErrorMessage(`문서 포맷팅 중 오류가 발생했습니다. 에러 코드: ${errorCode}. 다시 시도해주세요.`);
             }
         });
     });

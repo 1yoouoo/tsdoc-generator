@@ -243,21 +243,25 @@ else {
   `;
 }
 const generateTsDocComment = async (selectedText) => {
-    console.log(language);
-    const completion = await openai.chat.completions.create({
-        messages: [
-            {
-                role: 'system',
-                content: prompt,
-            },
-            {
-                role: 'user',
-                content: selectedText,
-            },
-        ],
-        model: 'gpt-3.5-turbo',
-    });
-    return completion.choices[0].message.content;
+    try {
+        const completion = await openai.chat.completions.create({
+            messages: [
+                {
+                    role: 'system',
+                    content: prompt,
+                },
+                {
+                    role: 'user',
+                    content: selectedText,
+                },
+            ],
+            model: 'gpt-3.5-turbo',
+        });
+        return completion.choices[0].message.content;
+    }
+    catch (error) {
+        throw error;
+    }
 };
 exports.generateTsDocComment = generateTsDocComment;
 //# sourceMappingURL=api.js.map

@@ -1,5 +1,8 @@
 # tsDoc-generator
 
+https://github.com/1yoouoo/tsdoc-generator/assets/79697414/17fa22da-f005-40a1-9fbe-dcc9fbf74d42
+
+
 ## **tsDoc Generator**
 
 tsDoc Generator is a Visual Studio Code extension that automatically generates tsDOC comments for TypeScript interfaces and types. By simply dragging over the type and pressing cmd+e on macOS or ctrl+e on Windows and Linux, users can effortlessly generate comprehensive documentation, saving time and enhancing code readability. This extension is perfect for projects of any size, ensuring consistent and maintainable documentation.
