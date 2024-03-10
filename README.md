@@ -1,72 +1,40 @@
-# tsdoc-generator README
+# tsDoc-generator
 
-This is the README for your extension "tsdoc-generator". After writing up a brief description, we recommend including the following sections.
+## **tsDoc Generator**
 
-## Features
+tsDoc Generator is a Visual Studio Code extension that automatically generates tsDOC comments for TypeScript interfaces and types. By simply dragging over the type and pressing cmd+e on macOS or ctrl+e on Windows and Linux, users can effortlessly generate comprehensive documentation, saving time and enhancing code readability. This extension is perfect for projects of any size, ensuring consistent and maintainable documentation.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### **Features**
+- Easy Documentation: Generate tsDOC comments with a simple keyboard shortcut.
+- Supports Multiple Platforms: Works on macOS, Windows, and Linux.
+- Improves Readability: Enhances code readability by providing detailed documentation.
+- Saves Time: Automates the documentation process, saving developers' time.
+- Consistency: Keeps documentation consistent across your codebase.
 
-For example if there is an image subfolder under your extension project workspace:
+### **How to Use**
+1. Get the ChatGPT api-key and save it in your settings. [https://platform.openai.com/api-keys]
+2. Install the tsDoc-generator extension from the Visual Studio Code Marketplace.
+3. Open a TypeScript file in Visual Studio Code.
+4. Drag your cursor over the TypeScript interface or type you wish to document.
+5. Press cmd+e on macOS or ctrl+e on Windows/Linux to generate tsDOC comments automatically.
 
-\!\[feature X\]\(images/feature-x.png\)
+## **tsDoc Generator**
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+tsDoc Generator는 TypeScript 인터페이스와 타입에 대한 tsDOC 주석을 자동으로 생성해주는 Visual Studio Code 확장 프로그램입니다. 타입 위에 커서를 드래그한 다음 macOS에서는 cmd+e, Windows와 Linux에서는 ctrl+e를 누르기만 하면, 손쉽게 상세한 문서를 생성할 수 있어 시간을 절약하고 코드의 가독성을 향상시킬 수 있습니다. 이 확장 프로그램은 모든 규모의 프로젝트에 이상적이며, 일관되고 유지보수가 용이한 문서를 보장합니다.
 
-## Requirements
+### **특징**
+- 간편한 문서화: 간단한 키보드 단축키로 tsDOC 주석 생성.
+- 다중 플랫폼 지원: macOS, Windows, Linux에서 작동.
+- 가독성 향상: 상세한 문서 제공으로 코드 가독성 향상.
+- 시간 절약: 문서화 과정을 자동화하여 개발자의 시간 절약.
+- 일관성: 코드베이스 전체에 걸쳐 문서의 일관성 유지.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### **사용 방법**
+1. ChatGPT api-key를 가져와서 설정에 저장합니다. [https://platform.openai.com/api-keys]
+2. Visual Studio Code 마켓플레이스에서 tsDoc-generator 확장 프로그램을 설치하세요.
+3. Visual Studio Code에서 TypeScript 파일을 엽니다.
+4. 문서화하고 싶은 TypeScript 인터페이스나 타입 위에 커서를 드래그하세요.
+5. macOS에서는 cmd+e, Windows/Linux에서는 ctrl+e를 눌러 자동으로 tsDOC 주석을 생성하세요.
 
-## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
-# tsdoc-generator
+## 개발자 [https://github.com/1yoouoo]

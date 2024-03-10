@@ -32,7 +32,16 @@
         "tsdoc-generator.apiKey": {
           "type": "string",
           "default": "",
-          "description": "API Key for TSdoc Generator"
+          "description": "API Key for tsDoc Generator"
+        },
+        "tsdoc-generator.language": {
+          "type": "string",
+          "enum": [
+            "korean",
+            "english"
+          ],
+          "default": "korean",
+          "description": "Language for TSdoc Generator"
         }
       }
     }
