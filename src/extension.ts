@@ -1,5 +1,5 @@
-import OpenAI from 'openai';
 import * as vscode from 'vscode';
+import { main } from './api';
 
 export function activate(context: vscode.ExtensionContext) {
   // 설정 변경 감지 리스너 등록
@@ -27,20 +27,31 @@ export function activate(context: vscode.ExtensionContext) {
   }
 
   // 커맨드 등록
-  let disposable = vscode.commands.registerCommand('tsdoc-generator.helloWorld', () => {
+  let disposable = vscode.commands.registerCommand('tsdoc-generator.helloWorld', async () => {
     const editor = vscode.window.activeTextEditor;
     if (editor) {
       const selection = editor.selection;
       const selectedText = editor.document.getText(selection);
-      const formattedText = `/**
-* 해당 내용은 입니다.
-*/
-${selectedText}`;
 
-      // 선택한 텍스트를 새로운 포맷의 텍스트로 대체
-      editor.edit(editBuilder => {
-        editBuilder.replace(selection, formattedText);
-      });
+      vscode.window.withProgress(
+        {
+          location: vscode.ProgressLocation.Notification,
+          title: '분석 중...',
+          cancellable: false,
+        },
+        async (progress, token) => {
+          // 선택한 텍스트에 대해 포맷팅 함수를 비동기적으로 호출
+          const formattedText = await main(selectedText);
+
+          if (formattedText) {
+            editor.edit(editBuilder => {
+              editBuilder.replace(selection, formattedText);
+            });
+          } else {
+            vscode.window.showInformationMessage('포맷팅 실패');
+          }
+        },
+      );
     }
   });
 

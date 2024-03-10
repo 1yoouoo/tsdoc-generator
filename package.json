@@ -54,11 +54,12 @@
     "@vscode/test-cli": "^0.0.6",
     "@vscode/test-electron": "^2.3.9",
     "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
+    "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.2.4",
-    "eslint-config-prettier": "^9.1.0"
+    "typescript": "^5.3.3"
   },
   "dependencies": {
+    "axios": "^1.6.7",
     "openai": "^4.28.4"
   }
 }
