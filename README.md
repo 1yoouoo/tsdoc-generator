@@ -1,7 +1,7 @@
 # tsDoc-generator
 
 
-<img src="https://github.com/1yoouoo/tsdoc-generator/assets/79697414/17fa22da-f005-40a1-9fbe-dcc9fbf74d42" width="500px" />
+<img src="images/preview.mov" width="500px" />
 
 ## **tsDoc Generator**
 
