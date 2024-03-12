@@ -3,6 +3,7 @@ import { generateTsDocComment } from './api';
 
 const config = vscode.workspace.getConfiguration('tsdoc-generator');
 const apiKey = config.get<string>('apiKey');
+const language = config.get<string>('language') || 'korean';
 
 export function activate(context: vscode.ExtensionContext) {
   let latestRequestId = 0;
@@ -42,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.window.withProgress(
       {
         location: vscode.ProgressLocation.Notification,
-        title: '분석 중...',
+        title: language === 'korean' ? '분석 중...' : 'Analyzing...',
         cancellable: false,
       },
       async () => {

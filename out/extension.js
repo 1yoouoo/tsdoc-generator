@@ -28,6 +28,7 @@ const vscode = __importStar(require("vscode"));
 const api_1 = require("./api");
 const config = vscode.workspace.getConfiguration('tsdoc-generator');
 const apiKey = config.get('apiKey');
+const language = config.get('language') || 'korean';
 function activate(context) {
     let latestRequestId = 0;
     context.subscriptions.push(vscode.workspace.onDidChangeConfiguration(e => {
@@ -54,7 +55,7 @@ function activate(context) {
         const requestId = ++latestRequestId;
         vscode.window.withProgress({
             location: vscode.ProgressLocation.Notification,
-            title: '분석 중...',
+            title: language === 'korean' ? '분석 중...' : 'Analyzing...',
             cancellable: false,
         }, async () => {
             try {
