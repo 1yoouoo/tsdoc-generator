@@ -1,24 +1,23 @@
 import * as vscode from 'vscode';
 import OpenAI from 'openai';
-import koreanPrompt from './prompts/korean';
-import englishPrompt from './prompts/english';
+import koreanBlockPrompt from './prompts/BlockPrompts/korean';
+import englishBlockPrompt from './prompts/BlockPrompts/english';
+import koreanInlinePrompt from './prompts/InlinePrompts/korean';
+import englishInlinePrompt from './prompts/InlinePrompts/english';
 
 const config = vscode.workspace.getConfiguration('tsdoc-generator');
 const apiKey = config.get<string>('apiKey');
 const openai = new OpenAI({
   apiKey,
 });
-const language = config.get<string>('language') || 'korean';
+const language = config.get<string>('language') || 'english';
+const documentationStyle = config.get<string>('documentationStyle') || 'inline';
 
 let prompt: string;
-switch (language) {
-  case 'korean':
-    prompt = koreanPrompt;
-    break;
-  case 'english':
-  default:
-    prompt = englishPrompt;
-    break;
+if (language === 'korean') {
+  prompt = documentationStyle === 'inline' ? koreanInlinePrompt : koreanBlockPrompt;
+} else {
+  prompt = documentationStyle === 'inline' ? englishInlinePrompt : englishBlockPrompt;
 }
 
 export const generateTsDocComment = async (selectedText: string) => {

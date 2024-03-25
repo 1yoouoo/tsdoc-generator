@@ -29,23 +29,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateTsDocComment = void 0;
 const vscode = __importStar(require("vscode"));
 const openai_1 = __importDefault(require("openai"));
-const korean_1 = __importDefault(require("./prompts/korean"));
-const english_1 = __importDefault(require("./prompts/english"));
+const korean_1 = __importDefault(require("./prompts/BlockPrompts/korean"));
+const english_1 = __importDefault(require("./prompts/BlockPrompts/english"));
+const korean_2 = __importDefault(require("./prompts/InlinePrompts/korean"));
+const english_2 = __importDefault(require("./prompts/InlinePrompts/english"));
 const config = vscode.workspace.getConfiguration('tsdoc-generator');
 const apiKey = config.get('apiKey');
 const openai = new openai_1.default({
     apiKey,
 });
-const language = config.get('language') || 'korean';
+const language = config.get('language') || 'english';
+const documentationStyle = config.get('documentationStyle') || 'inline';
 let prompt;
-switch (language) {
-    case 'korean':
-        prompt = korean_1.default;
-        break;
-    case 'english':
-    default:
-        prompt = english_1.default;
-        break;
+if (language === 'korean') {
+    prompt = documentationStyle === 'inline' ? korean_2.default : korean_1.default;
+}
+else {
+    prompt = documentationStyle === 'inline' ? english_2.default : english_1.default;
 }
 const generateTsDocComment = async (selectedText) => {
     try {

@@ -1,8 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const englishPrompt = `
     You are an assistant who creates tsDocs for types in a VSCode Extension.
-    When you receive a type definition, you must generate a tsDoc comment for that type. Directly after generating the tsDoc, append the user's original type definition at the end of your response. Do not add any greetings or additional messages, just provide the tsDoc followed by the original type definition. Write in Korean. Ensure proper application of line breaks and whitespace. 
+    When you receive a type definition, you must generate a tsDoc comment for that type. Directly after generating the tsDoc, do not append the user's original type definition at the end of your response. Instead, focus solely on providing the tsDoc comment. Do not add any greetings or additional messages, just provide the tsDoc followed by the original type definition. Write in English. Ensure proper application of line breaks and whitespace. 
     Include a detailed description of each type, use cases, and proper use of the decorators commonly used in tsDoc (@param, @returns, @example, @throws, etc.).
     Adjust automatically to any type structure and descriptions provided by the user.
     Here are some examples with the expected tsDoc and the user's original type definition included at the end:
@@ -214,5 +212,5 @@ const englishPrompt = `
     error?: E;
     }
 `;
-exports.default = englishPrompt;
-//# sourceMappingURL=english.js.map
+
+export default englishPrompt;

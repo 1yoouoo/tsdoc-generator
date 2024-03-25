@@ -1,7 +1,13 @@
 # tsDoc-generator
 
 
-<img src="https://github.com/1yoouoo/tsdoc-generator/blob/main/images/preview.gif?raw=true" width="464px">
+## Version Comparison
+
+| Version | GIF Preview | Description |
+|---------|-------------|-------------|
+| **Block** | <img src="https://github.com/1yoouoo/tsdoc-generator/blob/main/images/block.gif?raw=true" width="464px"> | The `Block` version generates tsDOC comments in a block format above the selected type. It helps to understand the code structure at a glance, aiding in comprehension. |
+| **Inline** | <img src="https://github.com/1yoouoo/tsdoc-generator/blob/main/images/inline.gif?raw=true" width="464px"> | The `Inline` version adds tsDOC comments directly above each property or method. It provides detailed information, deepening the understanding of individual elements. |
+
 
 ## **tsDoc Generator**
 
@@ -20,6 +26,14 @@ tsDoc Generator is a Visual Studio Code extension that automatically generates t
 3. Open a TypeScript file in Visual Studio Code.
 4. Drag your cursor over the TypeScript interface or type you wish to document.
 5. Press cmd+e on macOS or ctrl+e on Windows/Linux to generate tsDOC comments automatically.
+
+
+-------------------------
+
+| 버전 | GIF 미리보기 | 설명 |
+|------|--------------|------|
+| **Block** | <img src="https://github.com/1yoouoo/tsdoc-generator/blob/main/images/block.gif?raw=true" width="464px"> | `Block` 버전은 선택한 타입 위에 블록 형태로 tsDOC 주석을 생성합니다. 코드 구조를 한 눈에 파악하기 쉬워 코드의 이해를 돕습니다. |
+| **Inline** | <img src="https://github.com/1yoouoo/tsdoc-generator/blob/main/images/inline.gif?raw=true" width="464px"> | `Inline` 버전은 각 프로퍼티나 메서드마다 바로 위에 tsDOC 주석을 추가합니다. 세부적인 정보를 제공하여 개별 요소에 대한 이해를 깊게 합니다. |
 
 ## **tsDoc Generator**
 
